@@ -1,30 +1,23 @@
 #include <iostream>
+#include "Heap.hpp"
 using std::endl;
 
-class MaxHeap{
-    private:
-
-        int size = 0;
-        int* heap = nullptr;
-
-        int parent(int i) const {return (i-1)/2;}
-        int left(int i) const {return i*2+1;}
-        int right(int i) const {return i*2+2;}
-
-    public:
-
-    ~MaxHeap(){
-        if(heap != nullptr)
+MaxHeap::~MaxHeap(){
+    if(heap != nullptr)
         delete[] heap;
-    }
+}
 
-    void heapify(int i);
-    void push(int value);
-    void floydAlgorithm();
-    void removeRoot();
-    void menu();
-        
-};
+int MaxHeap::right(int i){
+    return i*2+2;
+}
+
+int MaxHeap::left(int i){
+    return i*2+1;
+}
+
+int MaxHeap::parent(int i){
+ return (i-1)/2;
+}
 
 void MaxHeap::heapify(int i){
 

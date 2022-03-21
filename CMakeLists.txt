@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 17)
 
 set(SOURCES
-src/menu.cpp
+src/*.cpp
 )
 
 set(TARGET_NAME

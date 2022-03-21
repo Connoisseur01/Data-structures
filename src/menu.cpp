@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Heap.cpp"
-#include "List.cpp"
+#include "Heap.hpp"
+#include "List.hpp"
 using std::endl;
 
 void menu();
