@@ -3,10 +3,11 @@
 struct ListElement {
     int value = 0;
     ListElement* next = nullptr;
+    ListElement* prev = nullptr;
 };
          
          
-class LinkedList {
+class DoublyLinkedList {
     private:
 
         ListElement* head;
@@ -14,10 +15,12 @@ class LinkedList {
 
     public:
 
-        LinkedList();
-        ~LinkedList();
+        DoublyLinkedList();
+        ~DoublyLinkedList();
         
-        void addElement(int value);
+        void addBack(int value);
+        void addFront(int value);
+        void addElement(int index, int value);
         void printList();
         void menu();
 

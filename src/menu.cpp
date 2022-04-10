@@ -1,10 +1,9 @@
 #include <iostream>
 #include "Heap.hpp"
-#include "List.hpp"
+#include "DoublyLinkedList.hpp"
 using std::endl;
 
 void menu();
-int option;
 
 int main(){
 
@@ -14,10 +13,11 @@ int main(){
 
 void menu(){
     
+    int option;
     while(true){
         std::cout<<endl<<"---------------------------------"<<endl
             <<"choose data structure:"<<endl
-            <<"(1) Linked list"<<endl
+            <<"(1) Doubly Linked list"<<endl
             <<"(2) Heap"<<endl
             <<"(3) exit"<<endl;
         std::cin>>option;
@@ -25,8 +25,8 @@ void menu(){
         switch (option){
 
         case 1:{
-            LinkedList linkedList;
-            linkedList.menu();
+            DoublyLinkedList list;
+            list.menu();
             break;
         }
         
