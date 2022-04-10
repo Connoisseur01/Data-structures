@@ -46,21 +46,13 @@ void MaxHeap::push(int value){
     int i = size;
     heap[i] = value;
     if(parent(i) >= 0){
-        while(heap[parent(1)] < value){
+        while(heap[parent(i)] < value){
             int temp = heap[parent(i)];
             heap[parent(i)] = value;
             heap[i] = temp;
         }
     }  
-}
-
-void MaxHeap::floydAlgorithm(){
-
-    //int current = parent(size-1);
-    //while(heap[current] != NULL){
-    //    heapify(current);
-    //    --current;
-    //}
+    ++size;
 }
 
 void MaxHeap::removeRoot(){
@@ -74,20 +66,47 @@ void MaxHeap::removeRoot(){
     }
 }
 
+void MaxHeap::printHeap(){
+    int numberOfElementsInRow = 1;
+    int maxRowElements = 1;
+
+    for(int i = 0; i < size; ++i, ++numberOfElementsInRow){
+        std::cout<<heap[i]<<" ";
+        if(numberOfElementsInRow == maxRowElements){
+            std::cout<<endl;
+            maxRowElements = maxRowElements * 2;
+            numberOfElementsInRow = 0;
+        }
+
+    }
+    std::cout<<endl;
+}
+
+int MaxHeap::find(int value){
+
+   for(int i = 0; i <= size+1; ++i){
+       if(heap[i] == value){
+           return i;
+       }
+   } 
+   return -1;
+}
+
 void MaxHeap::menu(){
     int option = 0;
+    int value;
     while(true){
-        std::cout<<endl<<"--------------------------------"<<endl
-                <<"(1) add element to heap"<<endl
-                <<"(2) remove root"<<endl
-                <<"(3) create heap from table(Floyd Algorithm)"<<endl
-                <<"(4) return"<<endl;
+        std::cout<<endl<<"--------------------------------"<<endl;
+        printHeap();
+        std::cout<<endl<<"(1) add element to heap"<<endl
+                    <<"(2) remove root"<<endl
+                    <<"(3) find index of an element"<<endl
+                    <<"(4) return"<<endl;
         std::cin>>option;
 
         switch (option){
 
         case 1:
-            int value;
             std::cout<<"element value: ";
             std::cin>>value;
             push(value);
@@ -99,6 +118,9 @@ void MaxHeap::menu(){
             break;
 
         case 3:
+            std::cout<<"elements value: ";
+            std::cin>>value;
+            std::cout<<"elements index -> "<<find(value);
             break;
         
         case 4:
@@ -108,6 +130,5 @@ void MaxHeap::menu(){
             std::cout<<"wrong input";
             break;
         }
-
     }
 }
