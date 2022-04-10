@@ -56,11 +56,11 @@ void MaxHeap::push(int value){
 
 void MaxHeap::floydAlgorithm(){
 
-    int current = parent(size-1);
-    while(heap[current] != NULL){
-        heapify(current);
-        --current;
-    }
+    //int current = parent(size-1);
+    //while(heap[current] != NULL){
+    //    heapify(current);
+    //    --current;
+    //}
 }
 
 void MaxHeap::removeRoot(){
