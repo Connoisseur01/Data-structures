@@ -158,9 +158,9 @@ bool DoublyLinkedList::removeElement(int index){
 
 void DoublyLinkedList::printList(){
     ListElement* current = head;
-    std::cout<<"\nlist: | ";
+    std::cout<<"\nlist: ";
     while(current != nullptr){
-        std::cout<< current->value << " | ";
+        std::cout<< current->value << " ";
         current = current->next;    
     }
     std::cout<<"\n";

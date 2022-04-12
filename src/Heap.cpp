@@ -45,17 +45,20 @@ void MaxHeap::push(int value){
     heap = (int*) realloc(heap, (size+1)*sizeof(int));
     int i = size;
     heap[i] = value;
-    if(parent(i) >= 0){
-        while(heap[parent(i)] < value){
+
+        while(heap[parent(i)] < value && parent(i) >= 0){
+
             int temp = heap[parent(i)];
             heap[parent(i)] = value;
             heap[i] = temp;
+            i = parent(i);
         }
-    }  
+      
     ++size;
 }
 
 void MaxHeap::removeRoot(){
+    if(heap == nullptr) return;
     if(heap+1 == nullptr){
         delete[] heap;
     }
@@ -63,6 +66,7 @@ void MaxHeap::removeRoot(){
         heap[0] = heap[size - 1];
         heapify(0);
         heap = (int*) realloc(heap, (size-1)*sizeof(int));
+        --size;
     }
 }
 
@@ -71,11 +75,15 @@ void MaxHeap::printHeap(){
     int maxRowElements = 1;
 
     for(int i = 0; i < size; ++i, ++numberOfElementsInRow){
+
         std::cout<<heap[i]<<" ";
+
         if(numberOfElementsInRow == maxRowElements){
+
             std::cout<<endl;
             maxRowElements = maxRowElements * 2;
             numberOfElementsInRow = 0;
+
         }
 
     }
