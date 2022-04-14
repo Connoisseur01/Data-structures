@@ -173,7 +173,7 @@ int Array::find(int value){
     return -1;
 }
 
-void Array::printArray(){
+void Array::print(){
 
     std::cout<<"\nArray: ";
 
@@ -189,7 +189,7 @@ void Array::menu(){
 
     while(true){
         std::cout<<endl<<"---------------------------------"<<endl;
-        printArray();
+        print();
         std::cout<<endl<<"[1] add element to the back of the array"<<endl
                     <<"[2] add element to the front of the array"<<endl
                     <<"[3] add element at a given index"<<endl
@@ -203,14 +203,14 @@ void Array::menu(){
 
         switch (option){
 
-        case 1:     //add element to the back of the list
+        case 1:     //add element to the back of the array
             std::cout<<"element value: ";
             std::cin>>value;
             addBack(value);
             std::cout<<"element added";
             break;
         
-        case 2:     //add element to the front of the list
+        case 2:     //add element to the front of the array
             std::cout<<"element value: ";
             std::cin>>value;
             addFront(value);

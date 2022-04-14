@@ -2,6 +2,7 @@
 #include "Heap.hpp"
 #include "DoublyLinkedList.hpp"
 #include "Array.hpp"
+#include "RedBlackTree.hpp"
 using std::endl;
 
 void menu();
@@ -19,9 +20,10 @@ void menu(){
         std::cout<<endl<<"---------------------------------"<<endl
             <<"choose data structure:"<<endl
             <<"[1] Array"<<endl
-            <<"[2] Doubly Linked list"<<endl
+            <<"[2] Doubly Linked List"<<endl
             <<"[3] Heap"<<endl
-            <<"[4] exit"<<endl;
+            <<"[4] Red Black Tree"<<endl
+            <<"[5] exit"<<endl;
         std::cin>>option;
 
         switch (option){
@@ -45,7 +47,13 @@ void menu(){
             break;
         }
 
-        case 4:
+        case 4:{
+            RedBlackTree tree;
+            tree.menu();
+            break;
+        }
+
+        case 5:
             return;
 
         default:

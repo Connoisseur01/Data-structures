@@ -70,7 +70,7 @@ void MaxHeap::removeRoot(){
     }
 }
 
-void MaxHeap::printHeap(){
+void MaxHeap::print(){
     int numberOfElementsInRow = 1;
     int maxRowElements = 1;
 
@@ -105,7 +105,7 @@ void MaxHeap::menu(){
     int value;
     while(true){
         std::cout<<endl<<"--------------------------------"<<endl;
-        printHeap();
+        print();
         std::cout<<endl<<"(1) add element to heap"<<endl
                     <<"(2) remove root"<<endl
                     <<"(3) find index of an element"<<endl

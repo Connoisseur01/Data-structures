@@ -20,7 +20,7 @@ public:
     void floydAlgorithm();
     void removeRoot();
     void menu();
-    void printHeap();
+    void print();
     int find(int value);
 
 };

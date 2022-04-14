@@ -36,7 +36,7 @@ class Array{
         //if there are multiple elements with the same value in the list returns the first accurence of the value
         int find(int value);
         
-        void printArray();
+        void print();
         void menu();
 
 };

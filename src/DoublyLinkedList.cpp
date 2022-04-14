@@ -156,7 +156,7 @@ bool DoublyLinkedList::removeElement(int index){
     return true;
 }
 
-void DoublyLinkedList::printList(){
+void DoublyLinkedList::print(){
     ListElement* current = head;
     std::cout<<"\nlist: ";
     while(current != nullptr){
@@ -173,7 +173,7 @@ void DoublyLinkedList::menu(){
 
     while(true){
         std::cout<<endl<<"---------------------------------"<<endl;
-        printList();
+        print();
         std::cout<<endl<<"[1] add element to the back of the list"<<endl
                     <<"[2] add element to the front of the list"<<endl
                     <<"[3] add element add a given index"<<endl
