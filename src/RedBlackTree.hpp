@@ -13,20 +13,25 @@ class RedBlackTree{
     private:
 
         Node* root = nullptr;
+        Node* leaf;
+
         int size = 0;
         void deleteChildren(Node* node);
-        void pushFix(Node* node);
+        void fixPush(Node* node);
+        void fixRemove(Node* Node);
+        void transplant(Node* prev, Node* newNode);
 
     public:
 
+    RedBlackTree();
     ~RedBlackTree();
 
-    void leftRotate(Node* x);
-    void rightRotate(Node* x);
+    void rotateLeft(Node* x);
+    void rotateRight(Node* x);
     void push(int value);
-    //void removeRoot();
+    void remove(int value);
     void menu();
     void print(Node* node, int indent = 0);
-    //int find(int value);
+    Node* find(int value);
 
 };
