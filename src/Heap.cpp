@@ -43,14 +43,17 @@ int MaxHeap::parent(int i){
 
 void MaxHeap::heapify(int i){
 
+    
     int left = this->left(i);
     int right = this->right(i);
     int largest;
     largest = i;
-    if(heap[left] > heap[largest] && left <= size){
+    if(left < size){
+        if(heap[left] > heap[largest])
         largest = left;
     }
-    if(heap[right]>heap[largest] && right <= size){
+    if(right < size){
+        if(heap[right]>heap[largest])
         largest = right;
     }
 

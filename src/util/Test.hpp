@@ -3,10 +3,9 @@
 
 
 class Test{
-    private:
+    public:
         void generateData(int size, std::string filename);
         
-    public:
         void testArray();
         void testList();
         void testHeap();

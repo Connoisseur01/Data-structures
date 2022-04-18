@@ -320,10 +320,13 @@ void RedBlackTree::fixRemove(Node* node){
 void RedBlackTree::remove(int value){
 
     Node* node = find(value);
+    if(node == nullptr){
+      return;
+    }
     Node *x, *y;
 
     y = node;
-    int y_original_color = y->color;
+    char y_original_color = y->color;
     
     if (node->left == leaf) {
       x = node->right;

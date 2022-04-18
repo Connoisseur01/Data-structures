@@ -7,7 +7,7 @@
 #include<string>
 #include<iostream>
 #include<fstream>
-#   include<time.h>
+#include<time.h>
 
 using std::endl;
 
@@ -54,7 +54,7 @@ void Test::testArray(){
 
     double time = 0.0;
 
-    for(int i = 0; i < 5; ++i){ 
+    for(int i = 0; i < 10; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -168,7 +168,7 @@ void Test::testArray(){
         arrayFind<<size<<","<<time<<endl;
         time = 0.0;
 
-        size = size+2000;
+        size = size+1000;
     }
 
 
@@ -204,7 +204,7 @@ void Test::testList(){
 
     double time = 0.0;
 
-    for(int i = 0; i < 5; ++i){ 
+    for(int i = 0; i < 10; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -318,7 +318,7 @@ void Test::testList(){
         listFind<<size<<","<<time<<endl;
         time = 0.0;
 
-        size = size+2000;
+        size = size+1000;
     }
 
 
@@ -347,7 +347,7 @@ void Test::testHeap(){
     int size = 2000;
     double time = 0.0;
 
-    for(int i = 0; i < 5; ++i){ 
+    for(int i = 0; i < 10; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -397,7 +397,7 @@ void Test::testHeap(){
         heapFind<<size<<","<<time<<endl;
         time = 0.0;
 
-        size = size + 2000;
+        size = size + 1000;
     }
     heapAdd.close();
     heapRemove.close();
@@ -419,7 +419,7 @@ void Test::testRedBlackTree(){
     int size = 2000;
     double time = 0.0;
 
-    for(int i = 0; i < 5; ++i){ 
+    for(int i = 0; i < 10; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -469,7 +469,7 @@ void Test::testRedBlackTree(){
         rbtFind<<size<<","<<time<<endl;
         time = 0.0;
 
-        size = size + 2000;
+        size = size + 1000;
     }
     rbtAdd.close();
     rbtRemove.close();
