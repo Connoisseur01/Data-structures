@@ -22,7 +22,7 @@ void Test::generateData(int size, std::string filename){
     int element;
     for(int i = 0; i < size; ++i){
 
-        element = rand() % 100 + 1;
+        element = rand() % 20000 + 1;
         file<<element<<endl;
     }
 
@@ -50,11 +50,11 @@ void Test::testArray(){
     arrayRemoveBack.open(REMOVE_BACK_CSV);
     arrayRemoveFront.open(REMOVE_FRONT_CSV);
     arrayFind.open(FIND_CSV);
-    int size = 2000;
+        
+    size = 2000;
+    time = 0.0;
 
-    double time = 0.0;
-
-    for(int i = 0; i < 10; ++i){ 
+    for(int i = 0; i < 15; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -63,7 +63,7 @@ void Test::testArray(){
             Counter counter;
 
             counter.startCounter();
-            array.addElement(rand() % size, k);
+            array.addElement(size-1, k);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -111,7 +111,7 @@ void Test::testArray(){
             Counter counter;
 
             counter.startCounter();
-            array.removeElement(rand() % size);
+            array.removeElement(size-1);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -157,9 +157,10 @@ void Test::testArray(){
             generateData(size, ARRAY_DATA);
             Array array;
             Counter counter;
+            int* arrayPtr = array.getPointer();
 
             counter.startCounter();
-            array.find(rand() % 100);
+            array.find(arrayPtr[size-1]);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -200,11 +201,11 @@ void Test::testList(){
     listRemoveBack.open(REMOVE_BACK_CSV);
     listRemoveFront.open(REMOVE_FRONT_CSV);
     listFind.open(FIND_CSV);
-    int size = 2000;
+    
+    size = 2000;
+    time = 0.0;
 
-    double time = 0.0;
-
-    for(int i = 0; i < 10; ++i){ 
+    for(int i = 0; i < 15; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -213,7 +214,7 @@ void Test::testList(){
             Counter counter;
 
             counter.startCounter();
-            list.addElement(rand() % size, k);
+            list.addElement(size-1, k);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -261,7 +262,7 @@ void Test::testList(){
             Counter counter;
 
             counter.startCounter();
-            list.removeElement(rand() % size);
+            list.removeElement(size - 1);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -307,9 +308,10 @@ void Test::testList(){
             generateData(size, LIST_DATA);
             DoublyLinkedList list;
             Counter counter;
+            ListElement* last = list.getLast();
 
             counter.startCounter();
-            list.find(k);
+            list.find(last->prev->value);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -344,10 +346,10 @@ void Test::testHeap(){
     heapRemove.open(REMOVE_CSV);
     heapFind.open(FIND_CSV);
 
-    int size = 2000;
-    double time = 0.0;
+    size = 2000;
+    time = 0.0;
 
-    for(int i = 0; i < 10; ++i){ 
+    for(int i = 0; i < 15; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -386,9 +388,10 @@ void Test::testHeap(){
             generateData(size, HEAP_DATA);
             MaxHeap heap;
             Counter counter;
+            int* heapPtr = heap.getHeap();
 
             counter.startCounter();
-            heap.find(k);
+            heap.find(heapPtr[size-1]);
             counter.stopCounter();
             time = time + counter.getCounter();
         }
@@ -416,10 +419,10 @@ void Test::testRedBlackTree(){
     rbtRemove.open(REMOVE_CSV);
     rbtFind.open(FIND_CSV);
 
-    int size = 2000;
-    double time = 0.0;
+    size = 2000;
+    time = 0.0;
 
-    for(int i = 0; i < 10; ++i){ 
+    for(int i = 0; i < 15; ++i){ 
 
         //add 
         for(int k = 0; k < 100; ++k){
@@ -460,7 +463,7 @@ void Test::testRedBlackTree(){
             Counter counter;
 
             counter.startCounter();
-            rbt.find(k);
+            rbt.find(rand() % 20000);
             counter.stopCounter();
             time = time + counter.getCounter();
         }

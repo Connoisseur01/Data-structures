@@ -292,7 +292,7 @@ void RedBlackTree::fixRemove(Node* node){
           sibling = node->parent->left;
         }
 
-        if (sibling->right->color == 'B' && sibling->right->color == 'B') {
+        if (sibling->right->color == 'B' && sibling->left->color == 'B') {
     
           sibling->color = 'R';
           node = node->parent;
@@ -326,7 +326,7 @@ void RedBlackTree::remove(int value){
     Node *x, *y;
 
     y = node;
-    char y_original_color = y->color;
+    char originalColor = y->color;
     
     if (node->left == leaf) {
       x = node->right;
@@ -345,7 +345,7 @@ void RedBlackTree::remove(int value){
             y = y->left;
         }
     
-        y_original_color = y->color;
+        originalColor = y->color;
         x = y->right;
     
         if (y->parent == node) {
@@ -366,7 +366,7 @@ void RedBlackTree::remove(int value){
     }
     
     delete node;
-    if (y_original_color == 0) {
+    if (originalColor == 'B') {
       fixRemove(x);
     }
 }
@@ -400,8 +400,7 @@ void RedBlackTree::menu(){
         print(root);
         std::cout<<endl<<"[1] add element to tree"<<endl
                     <<"[2] remove element"<<endl
-                    <<"[3] find index of an element"<<endl
-                    <<"[4] return"<<endl;
+                    <<"[3] return"<<endl;
         std::cin>>option;
 
         switch (option){
@@ -418,7 +417,7 @@ void RedBlackTree::menu(){
             remove(value);
             break;       
         
-        case 4:
+        case 3:
             return;
 
         default:

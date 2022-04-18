@@ -15,7 +15,6 @@ class RedBlackTree{
         Node* root = nullptr;
         Node* leaf;
 
-        int size = 0;
         void deleteChildren(Node* node);
         void fixPush(Node* node);
         void fixRemove(Node* Node);

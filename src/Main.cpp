@@ -14,16 +14,16 @@ int main(){
     srand(time(NULL));
 
     Test test;
-    test.testArray();
+     test.testArray();
     test.testList();
     test.testHeap();
-    test.testRedBlackTree();
+    test.testRedBlackTree(); 
 
-    /*test.generateData(10, "../data/heap/heap.txt");
+   /* test.generateData(10, "../data/heap/heap.txt");
     test.generateData(10, "../data/list/list.txt");
     test.generateData(10, "../data/array/array.txt");
     test.generateData(10, "../data/rbt/rbt.txt");
-    menu();*/
+    menu(); */
     return 0;
 }
 

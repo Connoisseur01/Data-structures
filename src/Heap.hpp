@@ -23,5 +23,6 @@ public:
     void menu();
     void print();
     int find(int value);
+    inline int* getHeap(){return heap;}
 
 };

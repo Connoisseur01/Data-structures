@@ -45,6 +45,7 @@ class DoublyLinkedList {
         //if there are multiple elements with the same value in the list returns the first accurence of the value
         int find(int value);
         
+        inline ListElement* getLast(){return last;}
         void print();
         void menu();
 
