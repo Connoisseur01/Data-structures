@@ -1,15 +1,24 @@
 #include <iostream>
+#include <time.h>
 #include "Heap.hpp"
 #include "DoublyLinkedList.hpp"
 #include "Array.hpp"
 #include "RedBlackTree.hpp"
+#include "util/Test.hpp"
 using std::endl;
 
 void menu();
 
 int main(){
 
-    menu();
+    srand(time(NULL));
+
+    Test test;
+    //test.testArray();
+    //test.testList();
+    //test.testHeap();
+    test.testRedBlackTree();
+    //menu();
     return 0;
 }
 

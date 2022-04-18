@@ -4,9 +4,11 @@ class Array{
     private:
         int size = 0;
         int* array = nullptr;
+        void read();
 
     public:
 
+        Array();
         ~Array();
 
 

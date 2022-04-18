@@ -1,5 +1,6 @@
 #include "RedBlackTree.hpp"
 #include <iostream>
+#include <fstream>
 
 using std::endl;
 
@@ -9,6 +10,7 @@ RedBlackTree::RedBlackTree(){
     leaf->left = nullptr;
     leaf->right = nullptr;
     root = leaf;
+    read();
 }
 
 RedBlackTree::~RedBlackTree(){
@@ -16,6 +18,22 @@ RedBlackTree::~RedBlackTree(){
     if(root != nullptr){
         deleteChildren(root);
     }
+}
+
+void RedBlackTree::read(){
+    
+    std::ifstream input("../data/rbt/rbt.txt");
+    if(!input.is_open()){
+        return;
+    }
+    int numberOfElements;
+    input >> numberOfElements;
+    int element;
+    for(int i = 0; i < numberOfElements; ++i){
+        input >> element;
+        push(element);
+    }
+    input.close();
 }
 
 void RedBlackTree::deleteChildren(Node* node){

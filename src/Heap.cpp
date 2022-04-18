@@ -1,10 +1,32 @@
 #include <iostream>
+#include <fstream>
 #include "Heap.hpp"
 using std::endl;
+
+MaxHeap::MaxHeap(){
+    read();
+}
 
 MaxHeap::~MaxHeap(){
     if(heap != nullptr)
         delete[] heap;
+}
+
+void MaxHeap::read(){
+
+    std::ifstream input("../data/heap/heap.txt");
+    if(!input.is_open()){
+        return;
+    }
+    int numberOfElements;
+    input >> numberOfElements;
+    int element;
+    for(int i = 0; i < numberOfElements; ++i){
+        input >> element;
+        push(element);
+    }
+    input.close();
+
 }
 
 int MaxHeap::right(int i){
@@ -92,7 +114,7 @@ void MaxHeap::print(){
 
 int MaxHeap::find(int value){
 
-   for(int i = 0; i <= size+1; ++i){
+   for(int i = 0; i < size; ++i){
        if(heap[i] == value){
            return i;
        }
@@ -106,10 +128,10 @@ void MaxHeap::menu(){
     while(true){
         std::cout<<endl<<"--------------------------------"<<endl;
         print();
-        std::cout<<endl<<"(1) add element to heap"<<endl
-                    <<"(2) remove root"<<endl
-                    <<"(3) find index of an element"<<endl
-                    <<"(4) return"<<endl;
+        std::cout<<endl<<"[1] add element to heap"<<endl
+                    <<"[2] remove root"<<endl
+                    <<"[3] find index of an element"<<endl
+                    <<"[4] return"<<endl;
         std::cin>>option;
 
         switch (option){

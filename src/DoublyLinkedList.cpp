@@ -1,10 +1,12 @@
 #include <iostream>
+#include <fstream>
 #include "DoublyLinkedList.hpp"
 using std::endl;
         
 DoublyLinkedList::DoublyLinkedList(){
     head = nullptr;
-     last = head;
+    last = head;
+    read();
 }
 
 DoublyLinkedList::~DoublyLinkedList(){
@@ -14,6 +16,22 @@ DoublyLinkedList::~DoublyLinkedList(){
         iterator = iterator->next;
         delete current;
     }
+}
+
+void DoublyLinkedList::read(){
+
+    std::ifstream input("../data/list/list.txt");
+    if(!input.is_open()){
+        return;
+    }
+    int numberOfElements;
+    input >> numberOfElements;
+    int element;
+    for(int i = 0; i < numberOfElements; ++i){
+        input >> element;
+        addBack(element);
+    }
+    input.close();
 }
 
 int DoublyLinkedList::find(int value){

@@ -12,6 +12,7 @@ class DoublyLinkedList {
 
         ListElement* head;
         ListElement* last;
+        void read();
 
     public:
 

@@ -1,9 +1,30 @@
 #include "Array.hpp"
 #include <iostream>
+#include <fstream> 
 using std::endl;
+
+Array::Array(){
+    read();
+}
 
 Array::~Array(){
  delete[] array;
+}
+
+void Array::read(){
+
+    std::ifstream input("../data/array/array.txt");
+    if(!input.is_open()){
+        return;
+    }
+    int numberOfElements;
+    input >> numberOfElements;
+    int element;
+    for(int i = 0; i < numberOfElements; ++i){
+        input >> element;
+        addBack(element);
+    }
+    input.close();
 }
 
 void Array::addBack(int value){

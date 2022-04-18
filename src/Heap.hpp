@@ -10,14 +10,15 @@ private:
     int parent(int i);
     int left(int i);
     int right(int i);
+    void read();
 
 public:
 
+    MaxHeap();
     ~MaxHeap();
 
     void heapify(int i);
     void push(int value);
-    void floydAlgorithm();
     void removeRoot();
     void menu();
     void print();

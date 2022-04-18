@@ -20,6 +20,7 @@ class RedBlackTree{
         void fixPush(Node* node);
         void fixRemove(Node* Node);
         void transplant(Node* prev, Node* newNode);
+        void read();
 
     public:
 
